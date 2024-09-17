@@ -1,24 +1,25 @@
-public class Movie {
+public class Movie{
     private String title;
 
     public Movie(String title) {
-        this.title = title;
+        this.title =title;
     }
 
     public void watchMovie(){
-        String instancetype =this.getClass().getSimpleName();
-        System.out.println(title +" is a "+instancetype+" film");
+        String instanceType =this.getClass().getSimpleName();
+        System.out.println(title +" is a "+ instanceType + " film.");
     }
 
-    public static Movie getMovie(String type,String title){
+    public static Movie getMovie(String type ,String title) {
         return switch (type.toUpperCase().charAt(0)) {
             case 'A'-> new Adventure(title);
-            case 'S'->new ScienceFiction(title);
-            case 'C'->new Comedy(title);
+            case 'C'-> new Comedy(title);
+            case 'S'-> new ScienceFiction(title);
             default -> new Movie(title);
         };
     }
-}
+    }
+
 
 class Adventure extends Movie{
     public Adventure(String title) {
@@ -28,15 +29,14 @@ class Adventure extends Movie{
     @Override
     public void watchMovie() {
         super.watchMovie();
-        System.out.printf("..%s%n".repeat(3),
+        System.out.printf("...%s%n".repeat(3),
                 "Pleasant Scene",
                 "Scary Music",
-                "Something Bad Happens"
-        );
+                "Something Bad Happens");
+
     }
 }
-
-class Comedy extends Movie {
+class Comedy extends Movie{
     public Comedy(String title) {
         super(title);
     }
@@ -44,26 +44,25 @@ class Comedy extends Movie {
     @Override
     public void watchMovie() {
         super.watchMovie();
-        System.out.printf("..%s%n".repeat(3),
-                "Something funny happens",
+        System.out.printf("...%s%n".repeat(3),
+                "Something Funny Happens",
                 "Something even funnier happens",
-                "Happy ending"
-        );
+                "Happy Ending");
+
     }
 }
-    class ScienceFiction extends Movie{
-        public ScienceFiction(String title) {
-            super(title);
-        }
+class ScienceFiction extends Movie{
+    public ScienceFiction(String title) {
+        super(title);
+    }
 
-        @Override
-        public void watchMovie() {
-            super.watchMovie();
-            System.out.printf("..%s%n".repeat(3),
-                    "Bad Aliens do Bad Stuff",
-                    "Space Guys chase Aliens",
-                    "Planet Blows up"
-            );
-        }
+    @Override
+    public void watchMovie() {
+        super.watchMovie();
+        System.out.printf("...%s%n".repeat(3),
+                "Bad Aliens do Bad Stuff",
+                "Space guys Chase aliens",
+                "Planet Blows up");
 
+    }
 }
